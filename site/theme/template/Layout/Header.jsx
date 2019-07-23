@@ -3,38 +3,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Popover, Input, Button, Badge } from 'antd';
-import Santa from './Santa';
+import { Select, Menu, Row, Col, Icon, Popover, Button } from 'antd';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
 const { Option } = Select;
 
-let docsearch;
-if (typeof window !== 'undefined') {
-  docsearch = require('docsearch.js'); // eslint-disable-line
-}
-
-function initDocSearch(locale) {
-  if (!docsearch) {
-    return;
-  }
-  const lang = locale === 'zh-CN' ? 'cn' : 'en';
-  docsearch({
-    apiKey: '60ac2c1a7d26ab713757e4a081e133d0',
-    indexName: 'ant_design',
-    inputSelector: '#search-box input',
-    algoliaOptions: { facetFilters: [`tags:${lang}`] },
-    transformData(hits) {
-      hits.forEach(hit => {
-        hit.url = hit.url.replace('ant.design', window.location.host); // eslint-disable-line
-        hit.url = hit.url.replace('https:', window.location.protocol); // eslint-disable-line
-      });
-      return hits;
-    },
-    debug: false, // Set debug to true if you want to inspect the dropdown
-  });
-}
 
 export default class Header extends React.Component {
   static contextTypes = {
@@ -47,17 +21,6 @@ export default class Header extends React.Component {
     menuVisible: false,
   };
 
-  componentDidMount() {
-    const { intl, router } = this.context;
-    router.listen(this.handleHideMenu);
-    const { searchInput } = this;
-    document.addEventListener('keyup', event => {
-      if (event.keyCode === 83 && event.target === document.body) {
-        searchInput.focus();
-      }
-    });
-    initDocSearch(intl.locale);
-  }
 
   handleShowMenu = () => {
     this.setState({
@@ -168,7 +131,7 @@ export default class Header extends React.Component {
         </Menu.Item>
         <Menu.Item key="docs/spec">
           <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
-            <FormattedMessage id="app.header.menu.spec" />
+            <FormattedMessage id="app.header.menu.start" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/react">
@@ -176,64 +139,9 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
-        <Menu.SubMenu
-          key="ecosystem"
-          className="hide-in-home-page"
-          title={
-            <Badge dot>
-              <FormattedMessage id="app.header.menu.ecosystem" />
-            </Badge>
-          }
-        >
-          <Menu.Item key="pro">
-            <a
-              href="http://pro.ant.design"
-              className="header-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Badge dot>
-                <FormattedMessage id="app.header.menu.pro.v4" />
-              </Badge>
-            </a>
-          </Menu.Item>
-          <Menu.Item key="ng">
-            <a
-              href="http://ng.ant.design"
-              className="header-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ant Design of Angular
-            </a>
-          </Menu.Item>
-          <Menu.Item key="vue">
-            <a
-              href="http://vue.ant.design"
-              className="header-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ant Design of Vue
-            </a>
-          </Menu.Item>
-          {isZhCN ? (
-            <Menu.Item key="course" className="hide-in-home-page">
-              <a
-                href="https://www.yuque.com/ant-design/course"
-                className="header-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ant Design 实战教程
-              </a>
-            </Menu.Item>
-          ) : null}
-        </Menu.SubMenu>
       </Menu>,
     ];
 
-    const searchPlaceholder = locale === 'zh-CN' ? '在 ant.design 中搜索' : 'Search in ant.design';
     return (
       <header id="header" className={headerClassName}>
         {isMobile && (
@@ -254,25 +162,12 @@ export default class Header extends React.Component {
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
               <img
                 alt="logo"
-                src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                src='http://resimg.iqeq.cn/icon.png'
               />
-              <img
-                alt="Ant Design"
-                src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg"
-              />
-              <Santa />
             </Link>
+               <h2>ANTD-CLY</h2>
           </Col>
           <Col xxl={20} xl={19} lg={19} md={19} sm={0} xs={0}>
-            <div id="search-box">
-              <Icon type="search" />
-              <Input
-                ref={ref => {
-                  this.searchInput = ref;
-                }}
-                placeholder={searchPlaceholder}
-              />
-            </div>
             {!isMobile && menu}
           </Col>
         </Row>
