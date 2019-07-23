@@ -9,7 +9,6 @@ import { version as antdVersion } from '../../../../package.json';
 
 const { Option } = Select;
 
-
 export default class Header extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
@@ -20,7 +19,6 @@ export default class Header extends React.Component {
   state = {
     menuVisible: false,
   };
-
 
   handleShowMenu = () => {
     this.setState({
@@ -130,13 +128,8 @@ export default class Header extends React.Component {
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/spec">
-          <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+          <Link to={utils.getLocalizedPathname('/docs/react/getting-started', isZhCN)}>
             <FormattedMessage id="app.header.menu.start" />
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="docs/react">
-          <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
-            <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
       </Menu>,
@@ -160,12 +153,9 @@ export default class Header extends React.Component {
         <Row>
           <Col xxl={4} xl={5} lg={5} md={5} sm={24} xs={24}>
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
-              <img
-                alt="logo"
-                src='http://resimg.iqeq.cn/icon.png'
-              />
+              <img alt="logo" src="http://resimg.iqeq.cn/icon.png" />
             </Link>
-               <h2>ANTD-CLY</h2>
+            <h2>ANTD-CLY</h2>
           </Col>
           <Col xxl={20} xl={19} lg={19} md={19} sm={0} xs={0}>
             {!isMobile && menu}

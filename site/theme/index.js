@@ -63,6 +63,10 @@ module.exports = {
         path: 'components/:children/',
         component: contentTmpl,
       },
+      {
+        path: 'docs/react/:children',
+        component: contentTmpl,
+      },
     ],
   },
 };
