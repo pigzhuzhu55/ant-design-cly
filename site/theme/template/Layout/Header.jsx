@@ -83,7 +83,7 @@ export default class Header extends React.Component {
       .join('/');
     let activeMenuItem = module || 'home';
     if (activeMenuItem === 'components' || location.pathname === 'changelog') {
-      activeMenuItem = 'docs/react';
+      activeMenuItem = 'docs/start';
     }
     const {
       intl: { locale },
@@ -127,9 +127,14 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.home" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="docs/spec">
-          <Link to={utils.getLocalizedPathname('/docs/react/getting-started', isZhCN)}>
+        <Menu.Item key="docs/start">
+          <Link to={utils.getLocalizedPathname('/docs/start/getting-started', isZhCN)}>
             <FormattedMessage id="app.header.menu.start" />
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="docs/spec">
+          <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+            <FormattedMessage id="app.header.menu.spec" />
           </Link>
         </Menu.Item>
       </Menu>,

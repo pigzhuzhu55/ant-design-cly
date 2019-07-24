@@ -29,12 +29,14 @@ function getModuleData(props) {
         .filter(item => item)
         .slice(0, 2)
         .join('/');
+  
+
   const moduleData =
     moduleName === 'components' ||
-    moduleName === 'docs/react' ||
+    moduleName === 'docs/start' ||
     moduleName === 'changelog' ||
     moduleName === 'changelog-cn'
-      ? [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog]
+      ? [...props.picked.components, ...props.picked['docs/start'], ...props.picked.changelog]
       : props.picked[moduleName];
   const excludedSuffix = utils.isZhCN(props.location.pathname) ? 'en-US.md' : 'zh-CN.md';
   return moduleData.filter(({ meta }) => !meta.filename.endsWith(excludedSuffix));
@@ -333,7 +335,6 @@ export default class MainContent extends Component {
               )}
             </section>
             <PrevAndNext prev={prev} next={next} />
-            <Footer />
           </Col>
         </Row>
       </div>

@@ -33,7 +33,7 @@ export default class Article extends React.Component {
       });
     }
     if (
-      window.location.href.indexOf('docs/react/recommendation') > 0 &&
+      window.location.href.indexOf('docs/start/recommendation') > 0 &&
       e.target.matches('.markdown > table td > a[href]')
     ) {
       window.gtag('event', 'recommendation', {

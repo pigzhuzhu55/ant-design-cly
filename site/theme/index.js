@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const path = require('path');
 
 const homeTmpl = './template/Home/index';
@@ -7,7 +8,9 @@ const redirectTmpl = './template/Redirect';
 function pickerGenerator(module) {
   const tester = new RegExp(`^docs/${module}`);
   return markdownData => {
-    const { filename } = markdownData.meta;
+    const {
+      filename,
+    } = markdownData.meta;
     if (tester.test(filename) && !/\/demo$/.test(path.dirname(filename))) {
       return {
         meta: markdownData.meta,
@@ -26,7 +29,9 @@ module.exports = {
   },
   pick: {
     components(markdownData) {
-      const { filename } = markdownData.meta;
+      const {
+        filename,
+      } = markdownData.meta;
       if (!/^components/.test(filename) || /[/\\]demo$/.test(path.dirname(filename))) {
         return null;
       }
@@ -42,7 +47,8 @@ module.exports = {
       }
       return null;
     },
-    'docs/cly': pickerGenerator('cly'),
+    'docs/start': pickerGenerator('start'),
+    'docs/spec': pickerGenerator('spec'),
   },
   plugins: [
     'bisheng-plugin-description',
@@ -53,9 +59,10 @@ module.exports = {
   routes: {
     path: '/',
     component: './template/Layout/index',
-    indexRoute: { component: homeTmpl },
-    childRoutes: [
-      {
+    indexRoute: {
+      component: homeTmpl,
+    },
+    childRoutes: [{
         path: 'index-cn',
         component: homeTmpl,
       },
@@ -64,7 +71,15 @@ module.exports = {
         component: contentTmpl,
       },
       {
-        path: 'docs/react/:children',
+        path: 'docs/start/:children',
+        component: contentTmpl,
+      },
+      {
+        path: 'changelog-cn',
+        component: contentTmpl,
+      }, 
+      {
+        path: 'docs/spec/:children',
         component: contentTmpl,
       },
     ],
