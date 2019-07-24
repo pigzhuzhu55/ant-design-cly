@@ -1,8 +1,8 @@
 ---
 category: Components
 type: 通用
-title: Input
-subtitle: 按钮
+title: SelectDown
+subtitle: 下拉选择菜单
 ---
 
 按钮用于开始一个即时操作。
