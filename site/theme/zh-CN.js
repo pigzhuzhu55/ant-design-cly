@@ -6,8 +6,8 @@ module.exports = {
   messages: {
     'app.header.menu.home': '首页',
     'app.header.menu.components': '组件',
+    'app.header.menu.react': '组件文档',
     'app.header.menu.start': '快速开始',
-    'app.header.menu.spec': '组件文档',
     'app.header.lang': 'English',
     'app.home.slogan': '基于antd的二次开发',
     'app.content.edit-page': '在 GitHub 上编辑此页！',

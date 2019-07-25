@@ -48,7 +48,7 @@ module.exports = {
       return null;
     },
     'docs/start': pickerGenerator('start'),
-    'docs/spec': pickerGenerator('spec'),
+    'docs/react': pickerGenerator('react'),
   },
   plugins: [
     'bisheng-plugin-description',
@@ -79,7 +79,11 @@ module.exports = {
         component: contentTmpl,
       }, 
       {
-        path: 'docs/spec/:children',
+        path: 'changelog',
+        component: contentTmpl,
+      }, 
+      {
+        path: 'docs/react/:children',
         component: contentTmpl,
       },
     ],

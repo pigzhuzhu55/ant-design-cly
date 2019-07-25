@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { message } from 'antd';
-import { ThemeType } from '../../../../components/icon';
+import { ThemeType } from 'antd/lib/icon';
 import CopyableIcon from './CopyableIcon';
 import { injectIntl, InjectedIntlProps } from 'react-intl';
 import { CategoriesKeys } from './fields';

@@ -1,5 +1,5 @@
 {
-  "name": "antdcly",
+  "name": "antd-cly",
   "version": "1.0.1",
   "title": "Ant Design CLY",
   "description": "An enterprise-class UI design language and React components implementation",
@@ -23,10 +23,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/ant-design"
+    "url": "https://github.com/pigzhuzhu55/ant-design-cly"
   },
   "bugs": {
-    "url": "https://github.com/ant-design/ant-design/issues"
+    "url": "https://github.com/pigzhuzhu55/ant-design-cly/issues"
   },
   "main": "lib/index.js",
   "module": "es/index.js",

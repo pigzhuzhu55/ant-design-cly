@@ -6,8 +6,8 @@ module.exports = {
   messages: {
     'app.header.menu.home': 'Home',
     'app.header.menu.components': 'Components',
-    'app.header.menu.start': 'start',
-    'app.header.menu.spec': 'docs',
+    'app.header.menu.react': 'Docs',
+    'app.header.menu.start': 'Start',
     'app.home.slogan': 'Secondary development based on antd',
     'app.header.lang': '中文',
     'app.content.edit-page': 'Edit this page on GitHub!',

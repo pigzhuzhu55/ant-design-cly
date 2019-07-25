@@ -18,6 +18,7 @@ import InputIcon from 'antd/lib/date-picker/InputIcon';
 import { DatePickerProps, DatePickerDecorator } from 'antd/lib/date-picker/interface';
 import wrapPicker from 'antd/lib/date-picker/wrapPicker';
 import createPicker from 'antd/lib/date-picker/createPicker';
+ 
 
 export interface RangePickerState {
   value?: RangePickerValue;
@@ -80,6 +81,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
     allowClear: true,
     showToday: false,
     separator: '~',
+    type: 'Input',
   };
 
   static getDerivedStateFromProps(nextProps: any, prevState: any) {
@@ -353,6 +355,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
         onHoverChange={this.handleHoverChange}
         onPanelChange={props.onPanelChange}
         showToday={showToday}
+        showDateInput={props.type === 'Input'}
         onInputSelect={this.handleCalendarInputSelect}
       />
     );
@@ -377,7 +380,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
 
     const input = ({ value: inputValue }: { value: any }) => {
       const [start, end] = inputValue;
-      return (
+      return props.type === 'Input' ? (
         <span className={props.pickerInputClass}>
           <input
             disabled={props.disabled}
@@ -399,6 +402,14 @@ class RangePicker extends React.Component<any, RangePickerState> {
           {clearIcon}
           {inputIcon}
         </span>
+      ) : (
+        <div>
+          {props.showItemSeparator && <span style={{ marginRight: 10, color: '#d4dfe5' }}>|</span>}
+          <span>
+            {props.title}
+            <Icon type={this.state.open ? 'up' : 'down'} />
+          </span>
+        </div>
       );
     };
 

@@ -35,14 +35,8 @@ module.exports = {
   htmlTemplate: './site/theme/static/template.html',
   themeConfig: {
     categoryOrder: {
-      快速开始: 0,
-      start: 0,
-      鸣谢: 1,
-      thanks: 1,
-      更新日志: 2,
-      logs: 2,
-      Components: 100,
       组件: 100,
+      Components: 100,
     },
     typeOrder: {
       General: 0,

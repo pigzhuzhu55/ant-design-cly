@@ -1,39 +1,32 @@
 ---
-order: 1
+order: 0
 title:
-  zh-CN: 定制日期单元格
-  en-US: Customized Date Rendering
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 ## zh-CN
 
-使用 `dateRender` 可以自定义日期单元格的内容和样式。
+例子里面，第一个是原生antd输入框选择的日期，第二个点下拉标签后选择的日期。
 
 ## en-US
 
-We can customize the rendering of date cells in the calendar by providing a `dateRender` function to `DatePicker`.
+In the example, the first is the date selected by the native antd input box, and the second is the date selected after the drop-down tag.
 
 ```jsx
 import { DatePicker } from 'antdcly';
 
 const { RangePicker } = DatePicker;
 
+function onChange(date, dateString) {
+  console.log(date, dateString);
+}
+
 ReactDOM.render(
   <div>
-    <RangePicker
-      dateRender={current => {
-        const style = {};
-        if (current.date() === 1) {
-          style.border = '1px solid #1890ff';
-          style.borderRadius = '50%';
-        }
-        return (
-          <div className="ant-calendar-date" style={style}>
-            {current.date()}
-          </div>
-        );
-      }}
-    />
+    <RangePicker onChange={onChange}  />
+    <br />
+    <RangePicker title='创建时间' onChange={onChange} align={{ offset: [0, 29] }} type="Select" />
   </div>,
   mountNode,
 );

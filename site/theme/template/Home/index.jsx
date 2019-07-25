@@ -23,12 +23,12 @@ class Home extends React.Component {
           <div className="cover-wrapper">
             <div className="cover-content">
               <div className="cover-icon">
-                <img src="http://resimg.iqeq.cn/iconB.png" alt="" />
+                <img src="http://resimg.iqeq.cn/webapires/cbf/5c878948c598a.jpg" alt="" />
               </div>
               <h3>antd-cly</h3>
               <div className="cover-link">
                 <a className="github" href="https://github.com/pigzhuzhu55/ant-design-cly" target="_blank">GitHub</a>
-                <Link className="start" to={utils.getLocalizedPathname('/docs/react/getting-started', isZhCN)}>Get Started</Link>
+                <Link className="start" to={utils.getLocalizedPathname('/docs/start/introduce', isZhCN)}>Get Started</Link>
               </div>
               <div className="slogan">
                 <FormattedMessage id="app.home.slogan" />
