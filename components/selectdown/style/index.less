@@ -3,8 +3,79 @@
 @select-prefix-cls: ~'@{ant-prefix}-selectdown';
 
 .@{select-prefix-cls} {
-  &-selectedlabel {
-    color: #adb4bc;
-    font-size: 40px;
+  &-filterdropitem {
+    display: inline-block;
+  }
+  &-filterdrop {
+    position: relative;
+    display: inline-block;
+    outline: none;
+  }
+  &-filtertitle {
+    position: relative;
+    display: inline-block;
+    padding: 4px 0;
+    color: #30404f;
+    font-size: 14px;
+    word-break: keep-all;
+    cursor: pointer;
+    i {
+      padding: 0 8px 0 5px;
+    }
+  }
+  &-disabled {
+    color: #78838d;
+  }
+
+  &-poperwraper {
+    position: absolute;
+    left: 0 !important;
+    z-index: 15;
+    min-width: 96px;
+    margin-left: 0;
+    padding-top: 0;
+    transform: translateX(0) !important;
+  }
+  &-poper {
+    width: auto;
+    min-height: 30px;
+    max-height: unset !important;
+    padding: 0 !important;
+    overflow-y: scroll;
+    background: #fff;
+    border-radius: 4px !important;
+    box-shadow: 0 10px 20px 0 rgba(6, 46, 95, 0.3);
+  }
+  &-filterscrollbox {
+    position: relative;
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  &-itembox {
+    min-width: 100px;
+    max-height: 400px;
+  }
+  &-filteritem {
+    position: relative;
+    display: block;
+    padding-right: 20px;
+    line-height: 28px;
+    white-space: nowrap;
+    text-indent: 10px;
+    cursor: pointer;
+  }
+  &-filteritem:hover {
+    background-color: #e6fffb;
+  }
+  &-selected {
+    color: @primary-color;
+    background: #fff;
+  }
+  &-selected i {
+    position: absolute;
+    right: 0;
+    font-size: 18px;
+    line-height: 28px;
   }
 }

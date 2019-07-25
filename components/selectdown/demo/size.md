@@ -1,8 +1,8 @@
 ---
 order: 1
 title:
-  zh-CN: 三种大小
-  en-US: Three sizes of Input
+  zh-CN: 两种类型
+  en-US: Two
 ---
 
 ## zh-CN
@@ -16,9 +16,20 @@ There are three sizes of an Input box: `large` (40px), `default` (32px) and `sma
 ```jsx
 import { SelectDown } from 'antdcly';
 
+function handleChangeSelect(myProps) {
+  console.log(myProps);
+}
+
+const data = {
+  text: '性质',
+  key: 'orgType',
+  value: '',
+  options: [{ title: '直营', key: '0' }, { title: '加盟', key: '1' }],
+};
+
 ReactDOM.render(
   <div className="example-input">
-    <SelectDown />
+    <SelectDown name={data.key} {...data} onChange={childPros => handleChangeSelect(childPros)} />
   </div>,
   mountNode,
 );
