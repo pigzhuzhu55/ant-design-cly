@@ -26,7 +26,7 @@ ReactDOM.render(
   <div>
     <RangePicker onChange={onChange}  />
     <br />
-    <RangePicker title='创建时间' onChange={onChange} align={{ offset: [0, 29] }} type="Select" />
+    <RangePicker title='创建时间' onChange={onChange} type="Select" />
   </div>,
   mountNode,
 );

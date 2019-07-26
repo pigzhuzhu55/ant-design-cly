@@ -18,7 +18,6 @@ import InputIcon from 'antd/lib/date-picker/InputIcon';
 import { DatePickerProps, DatePickerDecorator } from 'antd/lib/date-picker/interface';
 import wrapPicker from 'antd/lib/date-picker/wrapPicker';
 import createPicker from 'antd/lib/date-picker/createPicker';
- 
 
 export interface RangePickerState {
   value?: RangePickerValue;
@@ -434,6 +433,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
           onOpenChange={this.handleOpenChange}
           prefixCls={`${prefixCls}-picker-container`}
           style={popupStyle}
+          align={props.type === 'Input' ? {} : { offset: [0, 29] }}
         >
           {input}
         </RcDatePicker>

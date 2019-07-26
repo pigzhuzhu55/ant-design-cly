@@ -4,9 +4,11 @@ import moment from 'moment';
 import { Input, Icon, Spin } from 'antd';
 import classNames from 'classnames';
 
-import {RangePicker} from '../range-picker'
-const dateFormat = 'YYYY-MM-DD';
+import { DatePicker} from '../../components'
 
+const dateFormat = 'YYYY-MM-DD';
+console.log(DatePicker)
+const { RangePicker } = DatePicker;
 
 // https://segmentfault.com/a/1190000018704683?utm_source=tag-newest
 
@@ -174,7 +176,7 @@ export default class SelectDown extends Component {
     render() {
         const { name, text, style, type, parent,prefixCls } = this.props;
         const { showFilterDrop, options, value, loading, parentValue } = this.state;
-        const values = this.props.value.split('|').filter(val => val !== '');
+        const values = value.split('|').filter(val => val !== '');
         return (
             <div className={`${prefixCls}-filterdropitem`} style={style}>
                 {type === 'Select' && (
