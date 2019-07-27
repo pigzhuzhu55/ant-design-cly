@@ -4,7 +4,7 @@ import moment from 'moment';
 import { Input, Icon, Spin } from 'antd';
 import classNames from 'classnames';
 
-import { DatePicker} from '../../components'
+import { DatePicker } from '../../components'
 
 const dateFormat = 'YYYY-MM-DD';
 console.log(DatePicker)
@@ -77,9 +77,8 @@ export default class SelectDown extends Component {
     };
 
     handleFilterClick = () => {
-        const { type, loadData, child, parent } = this.props;
-        const { showFilterDrop, value, options, loading, parentValue } = this.state;
-
+        const { type, loadData, parent } = this.props;
+        const { showFilterDrop, value, options, parentValue } = this.state;
         if (type === 'Select') {
             // 父节点有值，且不是双值，且当前节点未加载数据，则从服务的拉取数据
             if (
@@ -125,8 +124,9 @@ export default class SelectDown extends Component {
                             ...this.props,
                             options: response.data,
                         };
-
-                        this.props.onLoad(nextProps);
+                        if (this.props.onLoad) {
+                            this.props.onLoad(nextProps);
+                        }
                     }
                 });
             }
@@ -143,17 +143,18 @@ export default class SelectDown extends Component {
     };
 
     handleSelectClick = value => {
-        const { type, multiple, child } = this.props;
+        const { type, multiple } = this.props;
+        const { value: oldValue } = this.state;
         let newValues = [];
         if (type === 'Select') {
             if (multiple) {
-                newValues = this.props.value.split('|').filter(val => val !== '');
+                newValues = oldValue.split('|').filter(val => val !== '');
                 if (newValues.some(val => val === value)) {
                     newValues = newValues.filter(val => val !== value);
                 } else {
                     newValues.push(value);
                 }
-            } else if (this.props.value === '' || this.props.value !== value) {
+            } else if (oldValue === '' || oldValue !== value) {
                 newValues.push(value);
             } else {
                 newValues.push('');
@@ -174,7 +175,7 @@ export default class SelectDown extends Component {
     };
 
     render() {
-        const { name, text, style, type, parent,prefixCls } = this.props;
+        const { name, text, style, type, parent, prefixCls } = this.props;
         const { showFilterDrop, options, value, loading, parentValue } = this.state;
         const values = value.split('|').filter(val => val !== '');
         return (

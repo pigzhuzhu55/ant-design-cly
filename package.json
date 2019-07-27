@@ -47,8 +47,6 @@
     "@ant-design/icons-react": "~2.0.1",
     "@types/react-slick": "^0.23.4",
     "antd": "^3.20.5",
-    "gregorian-calendar": "~4.1.0",
-    "gregorian-calendar-format": "~4.1.0",
     "array-tree-filter": "^2.1.0",
     "babel-runtime": "6.x",
     "classnames": "~2.2.6",
@@ -56,6 +54,8 @@
     "css-animation": "^1.5.0",
     "dom-closest": "^0.2.0",
     "enquire.js": "^2.1.6",
+    "gregorian-calendar": "~4.1.0",
+    "gregorian-calendar-format": "~4.1.0",
     "lodash": "^4.17.13",
     "moment": "^2.24.0",
     "omit.js": "^1.0.2",
@@ -96,6 +96,7 @@
     "react-slick": "~0.24.0",
     "resize-observer-polyfill": "^1.5.1",
     "shallowequal": "^1.1.0",
+    "umi-request": "^1.1.0",
     "warning": "~4.0.3"
   },
   "devDependencies": {
