@@ -102,8 +102,9 @@ export default class SelectDown extends Component {
                             ...this.props,
                             options: response.data,
                         };
-
-                        this.props.onLoad(nextProps);
+                        if(this.props.onLoad){
+                            this.props.onLoad(nextProps);
+                        }
                     }
                 });
             }
@@ -154,14 +155,20 @@ export default class SelectDown extends Component {
                 } else {
                     newValues.push(value);
                 }
-            } else if (oldValue === '' || oldValue !== value) {
-                newValues.push(value);
-            } else {
-                newValues.push('');
+            } else // 如果是单选，要考虑子节点是否开启
+            {
+                if (oldValue === '' || oldValue !== value) {
+                    newValues.push(value);
+                } else {
+                    newValues.push('');
+                }
             }
         } else {
             newValues.push(`${value.split(',')[0]} ~ ${value.split(',')[1]}`);
         }
+
+
+
         this.setState({
             value: newValues.join('|'),
         });
