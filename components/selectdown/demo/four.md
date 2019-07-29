@@ -30,7 +30,7 @@ class App extends React.Component {
           value: '',
           child: 'city',
           multiple: true,
-          loadData: this.queryProvinceData,
+          loadData: ()=> request(`http://test.lnxm.iqeq.cn/api/none/common/province/list`),
         },
         {
           text: '市',
@@ -39,7 +39,7 @@ class App extends React.Component {
           parent: 'province',
           child: 'county',
           multiple: true,
-          loadData: provinceId => this.queryCityData(provinceId),
+          loadData: provinceId => request(`http://test.lnxm.iqeq.cn/api/none/common/city/list?provinceId=${provinceId}`),
         },
         {
           text: '县',
@@ -47,7 +47,7 @@ class App extends React.Component {
           value: '',
           parent: 'city',
           multiple: true,
-          loadData: cityId => this.queryCountyData(cityId),
+          loadData: cityId => request(`http://test.lnxm.iqeq.cn/api/none/common/county/list?cityId=${cityId}`),
         },
       ],
     };
@@ -101,17 +101,6 @@ class App extends React.Component {
     });
   };
 
-  queryProvinceData = () => {
-    return request(`http://test.lnxm.iqeq.cn/api/none/common/province/list`);
-  };
-
-  queryCityData = provinceId => {
-    return request(`http://test.lnxm.iqeq.cn/api/none/common/city/list?provinceId=${provinceId}`);
-  };
-
-  queryCountyData = cityId => {
-    return request(`http://test.lnxm.iqeq.cn/api/none/common/county/list?cityId=${cityId}`);
-  };
 
   render() {
     const { filters } = this.state;

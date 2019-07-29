@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-支持异步远程加载数据，数据格式在本例子里面定义如下： { "code":0, "data":[ { "key":"英语", "title":"英语" }, { "key":"数学", "title":"数学" }, { "key":"国学", "title":"国学" }, { "key":"钢琴", "title":"钢琴" } ] }
+支持异步远程加载数据，数据格式在本例子里面定义如下：{ "code":0, "data":[ { "key":"", "title":"" },...] }
 
 ## en-US
 
-Asynchronous remote loading of data is supported, and the data format is defined in this example as follows: { "code":0, "data":[ { "key":"英语", "title":"英语" }, { "key":"数学", "title":"数学" }, { "key":"国学", "title":"国学" }, { "key":"钢琴", "title":"钢琴" } ] }
+Asynchronous remote loading of data is supported, and the data format is defined in this example as follows: { "code":0, "data":[ { "key":"", "title":"" },...] }
 
 ```jsx
 import { SelectDown } from 'antdcly';

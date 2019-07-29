@@ -1,0 +1,21 @@
+@import '../../style/themes/index';
+
+@select-prefix-cls: ~'@{ant-prefix}-selectbox';
+
+.@{select-prefix-cls} {
+  &-selecteditem {
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 20px;
+  }
+
+  &-selecteditem::after {
+    content: '';
+  }
+
+  &-selectedlabel {
+    color: #adb4bc;
+    font-size: 14px;
+  }
+
+}

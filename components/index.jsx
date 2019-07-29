@@ -17,3 +17,5 @@ if (
 export { default as DatePicker } from './range-picker';
 
 export { default as SelectDown } from './selectdown';
+
+export { default as SearchTemplate} from './search-template';
