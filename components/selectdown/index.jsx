@@ -102,7 +102,7 @@ export default class SelectDown extends Component {
                             ...this.props,
                             options: response.data,
                         };
-                        if(this.props.onLoad){
+                        if (this.props.onLoad) {
                             this.props.onLoad(nextProps);
                         }
                     }
@@ -178,7 +178,9 @@ export default class SelectDown extends Component {
             value: newValues.join('|'),
         };
 
-        this.props.onChange(nextProps);
+        if (this.props.onChange) {
+            this.props.onChange(nextProps);
+        }
     };
 
     render() {

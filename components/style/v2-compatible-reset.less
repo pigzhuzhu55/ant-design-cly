@@ -49,3 +49,95 @@ ul,
 ol {
   list-style: none;
 }
+
+
+
+// add by cai
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-layout {
+  min-height: 100vh;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.globalSpin {
+  width: 100%;
+  margin: 40px 0 !important;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(29, 34, 40, 0.2);
+  border-radius: 3px;
+}
+*::-webkit-scrollbar-track {
+  background: inherit;
+}
+*::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-scrollbarbutton:hover {
+  background-color: rgba(29, 34, 40, 0.4);
+}
+
+.floatL {
+  float: left;
+}
+
+.floatR {
+  float: right;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.clearfix::after,
+.clearfix::before {
+  display: table;
+  content: ' ';
+}
+
+.loading {
+  margin: auto;
+  text-align: center;
+}

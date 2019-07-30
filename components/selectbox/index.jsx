@@ -5,6 +5,7 @@ import { Tag } from 'antd';
 
 export default class SelectBox extends Component {
     static propTypes = {
+        prefixCls: PropTypes.string,
         name: PropTypes.string,
         text: PropTypes.string,
         value: PropTypes.string,
@@ -13,6 +14,7 @@ export default class SelectBox extends Component {
     };
 
     static defaultProps = {
+        prefixCls: 'ant-selectbox',
         name: '',
         text: '',
         options: [],
@@ -53,7 +55,7 @@ export default class SelectBox extends Component {
     };
 
     render() {
-        const { name, text, type } = this.props;
+        const { name, text, type,prefixCls } = this.props;
         const { value, options } = this.state;
 
         const keyTitles = [];
@@ -75,8 +77,8 @@ export default class SelectBox extends Component {
         }
 
         return (
-            <div key={name} className={styles.selecteditem}>
-                <span className={styles.selectedlabel}>{text}：</span>
+            <div key={name} className={`${prefixCls}-selecteditem`}>
+                <span className={`${prefixCls}-selectedlabel`}>{text}：</span>
                 {keyTitles.map(item => (
                     <Tag key={item.key} closable onClose={() => this.handleCloseTag(item.key.toString())}>
                         {item.title}

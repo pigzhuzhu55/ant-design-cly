@@ -35,21 +35,23 @@
     margin-left: 0;
     padding-top: 0;
     transform: translateX(0) !important;
+    background: #fff;
+    background-clip: padding-box;
+    border: 1px solid #fff;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 8px 0 rgba(6, 46, 95, 0.3);
   }
   &-poper {
     width: auto;
     min-height: 30px;
     max-height: unset !important;
     padding: 0 !important;
-    background: #fff;
-    border-radius: 4px !important;
-    box-shadow: 0 10px 20px 0 rgba(6, 46, 95, 0.3);
   }
   &-filterscrollbox {
     position: relative;
     max-height: 200px;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
   }
   &-itembox {
     min-width: 100px;

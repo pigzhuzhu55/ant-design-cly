@@ -25,8 +25,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       buttons : [
-        { text: '新增机构', type: 'primary', onClick: () => this.handleModalVisible(true) },
-        { text: '导入机构', onClick: () => this.handleTODO() },
+        { text: '新增机构', type: 'primary', onClick: () => {console.log('新增机构');} },
+        { text: '导入机构', onClick: () => {console.log('导入机构');} },
       ],
       searchTexts : [
         { text: '机构名称', key: 'orgName', placeholder: '请输入机构名称' },
@@ -76,7 +76,7 @@ class App extends React.Component {
  
   handleSearch = pagination => {
    
-    console.log('');
+    console.log('查询');
   };
 
   render() {

@@ -69,8 +69,8 @@ export default class SearchTemplate extends Component {
     };
 
     handleSearch = () => {
-        if (this.props.handleSearch) {
-            this.props.handleSearch();
+        if (this.props.onSearch) {
+            this.props.onSearch();
         }
     };
 
@@ -241,7 +241,6 @@ export default class SearchTemplate extends Component {
     }
 
     render() {
-        
         const { prefixCls } = this.props;
 
         return (
