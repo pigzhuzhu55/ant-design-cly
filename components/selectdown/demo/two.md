@@ -14,7 +14,7 @@ title:
 Supports radio, multiple, default values
 
 ```jsx
-import { SelectDown } from 'antdcly';
+import { SelectDown } from 'antd-cly';
 
 function handleChangeSelect(myProps) {
   console.log(myProps);

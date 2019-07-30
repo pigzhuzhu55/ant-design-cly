@@ -15,7 +15,7 @@ title:
 
 
 ```jsx
-import { SearchTemplate } from 'antdcly';
+import { SearchTemplate } from 'antd-cly';
 import { extend } from 'umi-request';
  
 const request = extend({});

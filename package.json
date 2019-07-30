@@ -1,19 +1,14 @@
 {
-  "name": "antdcly",
+  "name": "antd-cly",
   "version": "1.0.1",
   "title": "Ant Design CLY",
+  "author": "caicai2012 <181424167@qq.com>",
   "description": "An enterprise-class UI design language and React components implementation",
   "homepage": "http://cai.webparts.cn/",
+  "private": false,
   "keywords": [
-    "ant",
-    "design",
-    "react",
-    "react-component",
-    "component",
-    "components",
-    "ui",
-    "framework",
-    "frontend"
+    "antd-cly",
+    "cly"
   ],
   "contributors": [
     "ant"

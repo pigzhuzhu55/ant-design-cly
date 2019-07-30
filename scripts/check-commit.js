@@ -15,7 +15,7 @@ function exitProcess(code = 1) {
 }
 
 async function checkVersion() {
-  const { versions } = await fetch('http://registry.npmjs.org/antd').then(res => res.json());
+  const { versions } = await fetch('http://registry.npmjs.org/antd-cly').then(res => res.json());
   if (version in versions) {
     console.log(chalk.yellow('😈 Current version already exists. Forget update package.json?'));
     console.log(chalk.cyan(' => Current:'), version);
@@ -51,15 +51,15 @@ async function checkRemote() {
 }
 
 async function checkAll() {
-  const status = await git.status();
+  // const status = await git.status();
 
-  await checkVersion();
+  // await checkVersion();
 
-  await checkBranch(status);
+  // await checkBranch(status);
 
-  await checkCommit(status);
+  // await checkCommit(status);
 
-  await checkRemote();
+  // await checkRemote();
 }
 
 checkAll();

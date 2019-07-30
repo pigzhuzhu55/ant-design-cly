@@ -14,7 +14,7 @@ ANTD-CLY 基于阿里的开源组件 ant.design 基础上的二次封装，主�
 ### 安装
 
 ```bash
-npm install --save antdcly
+npm install --save antd-cly
 ```
 
 ### 使用组件

@@ -14,7 +14,7 @@ title:
 Currently, we have customized two types of selectors `Select'and`Date Picker' for `SelectDown/>'. Among them`Select'can be selected more. Some may wonder that the official ANTD of these components already exists, yes, but Date Picker does not have this drop-down option, so there is only a second encapsulation to satisfy the query list component as a filter combo box.
 
 ```jsx
-import { SelectDown } from 'antdcly';
+import { SelectDown } from 'antd-cly';
 
 function handleChangeSelect(myProps) {
   console.log(myProps);

@@ -14,7 +14,7 @@ title:
 Loading data remotely, The data format is the same as the previous example, increasing the linkage effect
 
 ```jsx
-import { SelectDown } from 'antdcly';
+import { SelectDown } from 'antd-cly';
 import { extend } from 'umi-request';
 
 const request = extend({});
