@@ -7,7 +7,6 @@ import classNames from 'classnames';
 import { DatePicker } from '../../components'
 
 const dateFormat = 'YYYY-MM-DD';
-console.log(DatePicker)
 const { RangePicker } = DatePicker;
 
 // https://segmentfault.com/a/1190000018704683?utm_source=tag-newest

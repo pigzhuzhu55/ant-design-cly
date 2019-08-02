@@ -89,7 +89,7 @@ class App extends React.Component {
         buttons={buttons}
         searchTexts={searchTexts}
         filters = {filters}
-        handleSearch = {this.handleSearch}
+        onSearch = {this.handleSearch}
         />
       </div>
     );
