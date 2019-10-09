@@ -1,31 +1,38 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Icon, Spin } from 'antd';
 import moment from 'moment';
-import { Input, Icon, Spin } from 'antd';
 import classNames from 'classnames';
-
-import { DatePicker } from '../../components'
+import { SelectProps, SelectDownOptionProps } from '../_util/selectProp'
+import { DatePicker } from '..'
 
 const dateFormat = 'YYYY-MM-DD';
+
+export interface IProps extends SelectProps{
+    prefixCls?: string;
+    multiple?: boolean;
+    text?: string;
+    showItemSeparator?: boolean;
+    type?: string;
+    loadData?: (val?: string) => Promise<any>;
+    parent?: string;
+    parentValue?: string;
+    style?: React.CSSProperties;
+    onChange?: (myProp?: SelectProps) => void;
+    onLoad?: (myProp?: IProps) => void;
+}
+
+interface IState {
+    showFilterDrop?: boolean;
+    options?: SelectDownOptionProps[];
+    value?: string;
+    parent?: string;
+    parentValue?: string;
+    loading?: boolean;
+}
+
 const { RangePicker } = DatePicker;
 
-// https://segmentfault.com/a/1190000018704683?utm_source=tag-newest
-
-export default class SelectDown extends Component {
-    static propTypes = {
-        prefixCls: PropTypes.string,
-        multiple: PropTypes.bool,
-        name: PropTypes.string,
-        text: PropTypes.string,
-        type: PropTypes.string,
-        value: PropTypes.string,
-        showItemSeparator: PropTypes.bool,
-        options: PropTypes.array,
-        loadData: PropTypes.func,
-        child: PropTypes.string,
-        parent: PropTypes.string,
-        parentValue: PropTypes.string,
-    }
+export default class SelectDown extends Component<IProps, IState> {
 
     static defaultProps = {
         prefixCls: 'ant-selectdown',
@@ -35,14 +42,13 @@ export default class SelectDown extends Component {
         value: '',
         showItemSeparator: false,
         type: 'Select',
-        options: [],
-        loadData: null,
+        options: Array<SelectDownOptionProps>(),
         child: '',
         parent: '',
         parentValue: '',
     }
 
-    constructor(props) {
+    constructor(props: IProps) {
         super(props);
 
         const { options, value, parentValue } = this.props;
@@ -56,7 +62,7 @@ export default class SelectDown extends Component {
         };
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: IProps) {
         const { value, options, parentValue } = nextProps;
 
         this.setState({
@@ -81,7 +87,7 @@ export default class SelectDown extends Component {
         if (type === 'Select') {
             // 父节点有值，且不是双值，且当前节点未加载数据，则从服务的拉取数据
             if (
-                parentValue !== '' &&
+                parentValue !== '' && 
                 !parentValue.includes('|') &&
                 value === '' &&
                 options.length === 0
@@ -142,7 +148,7 @@ export default class SelectDown extends Component {
         });
     };
 
-    handleSelectClick = value => {
+    handleSelectClick = (value: string) => {
         const { type, multiple } = this.props;
         const { value: oldValue } = this.state;
         let newValues = [];
@@ -183,14 +189,14 @@ export default class SelectDown extends Component {
     };
 
     render() {
-        const { name, text, style, type, parent, prefixCls } = this.props;
+        const { text, style, type, parent, prefixCls } = this.props;
         const { showFilterDrop, options, value, loading, parentValue } = this.state;
         const values = value.split('|').filter(val => val !== '');
         return (
             <div className={`${prefixCls}-filterdropitem`} style={style}>
                 {type === 'Select' && (
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                    <div className={`${prefixCls}-filterdrop`} tabIndex="0" onBlur={() => this.hideDropList()}>
+                    <div className={`${prefixCls}-filterdrop`} tabIndex={0} onBlur={() => this.hideDropList()}>
                         <div>
                             {this.props.showItemSeparator && this.props.parent === '' && (
                                 <span style={{ marginRight: 10, color: '#d4dfe5' }}>|</span>
@@ -239,7 +245,7 @@ export default class SelectDown extends Component {
                                                             {item.title}
                                                             {values.some(x => x === item.key.toString()) && <Icon type="check" />}
                                                         </li>
-                                                    )
+                                                    ),
                                             )}
                                         </div>
                                     )}
@@ -252,7 +258,7 @@ export default class SelectDown extends Component {
                     <div className={`${prefixCls}-filterdrop`}>
                         <div>
                             <RangePicker
-                                onChange={(ment, val) => this.handleSelectClick(val.toString())}
+                                onChange={(_ment, val) => this.handleSelectClick(val.toString())}
                                 value={
                                     value === ''
                                         ? null

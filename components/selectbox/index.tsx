@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Tag } from 'antd';
 
+import { SelectProps,SelectDownOptionProps } from '../_util/selectProp'
 
-export default class SelectBox extends Component {
-    static propTypes = {
-        prefixCls: PropTypes.string,
-        name: PropTypes.string,
-        text: PropTypes.string,
-        value: PropTypes.string,
-        options: PropTypes.array,
-        type: PropTypes.string,
-    };
+export interface IProps extends SelectProps{
+    prefixCls?: string;
+    text?: string;
+    type?: string;
+    onChange?: (myProp: SelectProps) => void;
+}
+
+interface IState {
+    options?: SelectDownOptionProps[];
+    value?: string;
+}
+
+export default class SelectBox extends Component <IProps, IState>{
 
     static defaultProps = {
         prefixCls: 'ant-selectbox',
         name: '',
         text: '',
-        options: [],
+        options: Array<SelectDownOptionProps>(),
         value: '',
         type: 'Select',
     };
 
-    constructor(props) {
+    constructor(props: IProps) {
         super(props);
 
         const { value, options } = this.props;
@@ -33,7 +37,7 @@ export default class SelectBox extends Component {
         };
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: IProps) {
         const { value, options } = nextProps;
 
         this.setState({
@@ -42,7 +46,7 @@ export default class SelectBox extends Component {
         });
     }
 
-    handleCloseTag = value => {
+    handleCloseTag = (value: string) => {
         const values = this.props.value.split('|').filter(val => val !== '' && val !== value);
 
         const nextProps = {
@@ -55,10 +59,9 @@ export default class SelectBox extends Component {
     };
 
     render() {
-        const { name, text, type,prefixCls } = this.props;
+        const { name, text, type, prefixCls } = this.props;
         const { value, options } = this.state;
-
-        const keyTitles = [];
+        const keyTitles = new Array<SelectDownOptionProps>();
         if (value !== '') {
             const keys = value.split('|');
 

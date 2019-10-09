@@ -12,12 +12,12 @@ import Tag from 'antd/lib/tag';
 import { ConfigConsumer, ConfigConsumerProps } from 'antd/lib/config-provider';
 import warning from 'antd/lib/_util/warning';
 import interopDefault from 'antd/lib/_util/interopDefault';
-import { RangePickerValue, RangePickerPresetRange } from 'antd/lib/date-picker/interface';
-import { formatDate } from 'antd/lib/date-picker/utils';
-import InputIcon from 'antd/lib/date-picker/InputIcon';
-import { DatePickerProps, DatePickerDecorator } from 'antd/lib/date-picker/interface';
-import wrapPicker from 'antd/lib/date-picker/wrapPicker';
-import createPicker from 'antd/lib/date-picker/createPicker';
+import { RangePickerValue, RangePickerPresetRange } from './date-picker/interface';
+import { formatDate } from './date-picker/utils';
+import InputIcon from './date-picker/InputIcon';
+import { DatePickerProps, DatePickerDecorator } from './date-picker/interface';
+import wrapPicker from './date-picker/wrapPicker';
+import createPicker from './date-picker/createPicker';
 
 export interface RangePickerState {
   value?: RangePickerValue;

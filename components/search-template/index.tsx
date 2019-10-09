@@ -1,32 +1,70 @@
 import React, { Component } from 'react';
 import { Input, Button, Select, Icon } from 'antd';
-import PropTypes from 'prop-types';
+import { ButtonType } from 'antd/lib/button';
+import { SelectValue } from 'antd/lib/select'
 import classNames from 'classnames';
 
-import { SelectDown,SelectBox } from '../../components'
+import { SelectDown, SelectBox } from '..'
+import { IProps as SelectDownIProps } from '../selectdown';
+import { SelectProps,SelectDownOptionProps } from '../_util/selectProp'
 
 const InputGroup = Input.Group;
 const { Search } = Input;
 const { Option } = Select;
 
-export default class SearchTemplate extends Component {
-    static propTypes = {
-        prefixCls: PropTypes.string,
-        buttons: PropTypes.array,
-        searchTexts: PropTypes.array,
-        filters: PropTypes.array,
-        maxFilterNum: PropTypes.number,
-    };
 
+interface IProps {
+    prefixCls?: string;
+    buttons?: SearchTemplateButtonProps[];
+    searchTexts?: SearchTemplateSearchTextProps[];
+    filters?: SearchTemplateFilterProps[];
+    maxFilterNum?:number;
+    onSearch?: ()=>void;
+  }
+
+  interface IState {
+    searchText?: SearchTemplateSearchTextProps;
+    filters?: SearchTemplateFilterProps[];
+    showMore?: boolean;
+}
+
+  export type SearchTemplateButtonProps={
+    text?: string;
+    type?: ButtonType;
+    style?: React.CSSProperties;
+    onClick?:()=>void;
+  }
+  
+  export type SearchTemplateSearchTextProps={
+    text?: string;
+    key?: string;
+    value?: string;
+    placeholder?: string;
+  }
+  
+  export type SearchTemplateFilterProps={
+    multiple?: boolean;
+    key?: string;
+    text?: string;
+    value?: string;
+    type?: string;
+    options?: SelectDownOptionProps[];
+    loadData?: (val?: string) => Promise<any>;
+    child?: string;
+    parent?: string;
+    parentValue?: string;
+  }
+
+export default class SearchTemplate extends Component<IProps, IState> {
     static defaultProps = {
         prefixCls: 'ant-selectform',
-        buttons: [],
-        searchTexts: [],
-        filters: [],
+        buttons: Array<SearchTemplateButtonProps>(),
+        searchTexts: Array<SearchTemplateSearchTextProps>(),
+        filters: Array<SearchTemplateFilterProps>(),
         maxFilterNum: 5,
     }
 
-    constructor(props) {
+    constructor(props: IProps) {
         super(props);
         const { searchTexts, filters } = this.props;
 
@@ -42,7 +80,7 @@ export default class SearchTemplate extends Component {
     }
 
 
-    handleChange = value => {
+    handleChange = (value: SelectValue) => {
         const { searchTexts } = this.props;
         const newSearchText = searchTexts.filter(x => x.key === value)[0];
 
@@ -57,7 +95,7 @@ export default class SearchTemplate extends Component {
         });
     };
 
-    handleChangeText = e => {
+    handleChangeText = (e: any) => {
         const { searchText } = this.state;
         this.setState({
             searchText: {
@@ -74,7 +112,7 @@ export default class SearchTemplate extends Component {
         }
     };
 
-    handleLoadSelect = myProps => {
+    handleLoadSelect = (myProps: SelectDownIProps) => {
         const { filters } = this.state;
 
         filters.forEach(item => {
@@ -89,7 +127,7 @@ export default class SearchTemplate extends Component {
         });
     };
 
-    handleChangeSelect = myProps => {
+    handleChangeSelect = (myProps: SelectProps) => {
         const { filters } = this.state;
 
         /**
@@ -169,7 +207,7 @@ export default class SearchTemplate extends Component {
                 </div>
                 <div className={classNames(`${prefixCls}-boxR`, 'floatR')}>
                     <InputGroup compact>
-                        <Select defaultValue={searchText.key} onChange={value => this.handleChange(value)}>
+                        <Select defaultValue={searchText.key} onChange={this.handleChange}>
                             {searchTexts.map(item => (
                                 <Option key={item.key} value={item.key}>
                                     {item.text}
