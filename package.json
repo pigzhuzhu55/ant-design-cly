@@ -14,7 +14,7 @@
     "ant"
   ],
   "publishConfig": {
-    "registry": "http://218.104.238.196:8083/repository/npm_hosted/"
+    "registry": "http://127.0.0.1:8083/repository/npm_hosted/"
   },
   "repository": {
     "type": "git",
