@@ -6,20 +6,19 @@ import classNames from 'classnames';
 
 import { SelectDown, SelectBox } from '..'
 import { IProps as SelectDownIProps } from '../selectdown';
-import { SelectProps,SelectDownOptionProps } from '../_util/selectProp'
+import { SelectProps, SelectDownOptionProps } from '../_util/selectProp'
 
 const InputGroup = Input.Group;
 const { Search } = Input;
 const { Option } = Select;
-
 
 interface IProps {
     prefixCls?: string;
     buttons?: SearchTemplateButtonProps[];
     searchTexts?: SearchTemplateSearchTextProps[];
     filters?: SearchTemplateFilterProps[];
-    maxFilterNum?:number;
-    onSearch?: ()=>void;
+    maxFilterNum?: number;
+    onSearch?: () => void;
   }
 
   interface IState {
@@ -32,7 +31,7 @@ interface IProps {
     text?: string;
     type?: ButtonType;
     style?: React.CSSProperties;
-    onClick?:()=>void;
+    onClick?: ()=> void;
   }
   
   export type SearchTemplateSearchTextProps={

@@ -51,12 +51,12 @@ function finalizeDist() {
   if (fs.existsSync(path.join(__dirname, './dist'))) {
     // Build less entry file: dist/antd.less
     fs.writeFileSync(
-      path.join(process.cwd(), 'dist', 'antd.less'),
+      path.join(process.cwd(), 'dist', 'antd-cly.less'),
       '@import "../lib/style/index.less";\n@import "../lib/style/components.less";',
     );
 
     // eslint-disable-next-line
-    console.log('Built a entry less file to dist/antd.less');
+    console.log('Built a entry less file to dist/antd-cly.less');
   }
 }
 

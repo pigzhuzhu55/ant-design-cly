@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Tag } from 'antd';
 
-import { SelectProps,SelectDownOptionProps } from '../_util/selectProp'
+import { SelectProps, SelectDownOptionProps } from '../_util/selectProp'
 
 export interface IProps extends SelectProps{
     prefixCls?: string;
