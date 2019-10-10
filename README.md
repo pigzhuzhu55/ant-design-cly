@@ -12,5 +12,5 @@
  
 </div>
 
-# 官网地址(https://cly.iqeq01.com)
+# 文档地址(https://cly.iqeq01.com)
 # npm源(https://www.npmjs.com/package/antd-cly)
