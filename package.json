@@ -1,10 +1,10 @@
 {
   "name": "antd-cly",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "title": "Ant Design CLY",
   "author": "caicai2012 <181424167@qq.com>",
   "description": "An enterprise-class UI design language and React components implementation",
-  "homepage": "http://cai.webparts.cn/",
+  "homepage": "http://cly.iqeq01.com/",
   "private": false,
   "keywords": [
     "antd-cly",
@@ -14,7 +14,7 @@
     "ant"
   ],
   "publishConfig": {
-    "registry": "http://127.0.0.1:8083/repository/npm_hosted/"
+    "registry": "http://registry.npmjs.org"
   },
   "repository": {
     "type": "git",
